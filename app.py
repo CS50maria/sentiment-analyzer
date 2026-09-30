@@ -5,7 +5,7 @@ from transformers import pipeline   #hugging face pipeline(simple model interfac
 st.set_page_config(page_title="Sentiment Analyzer", page_icon="💬", layout="centered")
 
 #app title and description
-st.title("💬 Sentiment Analyzer")
+st.title("💬Maria's and Areesha's Sentiment Analyzer")
 st.write("Enter a sentence or paragraph below, and the app will analyze the sentiment of the text.")
 
 #load the hugging face model only once
@@ -19,6 +19,10 @@ with st.spinner("Loading AI model..."):
 
 #text input
 user_text = st.text_area("Enter your text here:", placeholder="I absolutely love this product!", height=150)  #creates text area box for user input
+
+# NEW FEATURE: Word counter
+word_count = len(user_text.split())
+st.caption(f"📝 Word count: {word_count}")
 
 #analyze button
 if st.button("Analyze Sentiment", type = "primary"):     #analyze sentiment button
